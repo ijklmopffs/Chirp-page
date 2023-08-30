@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import twitter from "../../Assets/Twitter.svg";
-import hamburger from "../../Assets/Hamburger Menu.svg";
 import hero from "../../Assets/Hero Image (Desktop View).png";
 import hero2 from "../../Assets/Hero Image (Tablet View).png";
 import twitterUser from "../../Assets/userAvatar01.svg";
@@ -14,20 +14,37 @@ import twitterUser8 from "../../Assets/userAvatar08.svg";
 import twitterUser9 from "../../Assets/userAvatar09.svg";
 
 export default function Header() {
+  const [nav, setNav] = useState(false);
+  const handleClick = () => {
+    setNav(!nav);
+  };
+
   return (
     <header className="bg-gray-100 p-10 m-0">
       <nav className="flex justify-between">
         <div>
           <p className="text-blue-800 font-bold text-3xl italic">Chirp.</p>
         </div>
-        <div className="md:hidden">
-          <img src={hamburger} alt="" />
+        <div className="md:hidden" onClick={handleClick}>
+          {nav ? <FaTimes size={25} /> : <FaBars size={25} />}
         </div>
-        <div className="md:flex md:gap-4 md:items-center hidden">
-          <a href="/">Home</a>
-          <a href="/">Pricing</a>
-          <a href="/">FAQ</a>
-          <button className="bg-blue-500 text-white p-2 flex gap-1 items-center font-semibold rounded-md">
+        <div
+          className={
+            nav
+              ? "flex md:gap-4 md:items-center flex-col md:flex-row bg-white md:bg-transparent text-gray-900 p-10 md:p-0 absolute top-20 w-3/4 md:w-auto left-20 md:static rounded-md"
+              : "flex md:gap-4 md:items-center flex-col md:flex-row bg-white md:bg-transparent text-gray-900 p-10 md:p-0 absolute top-[-100%] w-3/4 md:w-auto left-20 md:static"
+          }
+        >
+          <a href="/" className="py-4">
+            Home
+          </a>
+          <a href="/" className="py-4">
+            Pricing
+          </a>
+          <a href="/" className="py-4">
+            FAQ
+          </a>
+          <button className="bg-blue-500 text-white p-2 flex gap-1 items-center font-semibold rounded-md justify-center">
             <img src={twitter} alt="twitter" className="w-5 h-5" />
             Sign in with twitter
           </button>

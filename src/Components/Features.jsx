@@ -1,6 +1,6 @@
 export default function Features() {
   return (
-    <div className="p-10 items-center flex flex-col md:items-start">
+    <div className="p-10 items-center flex flex-col md:items-start lg:mx-auto max-w-5xl">
       <h1 className="font-bold text-4xl w-96 text-start">
         Features that help you Tweet smarter.
       </h1>

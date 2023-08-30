@@ -3,7 +3,7 @@ import twitter from "../../Assets/Twitter.svg";
 
 export default function Pricing() {
   return (
-    <div className="mt-5 p-5 flex flex-col items-center">
+    <div className="mt-5 p-5 flex flex-col items-center max-w-5xl mx-auto">
       <div>
         <h1 className="font-bold text-4xl">One simple price plan</h1>
         <p>Start growing your twitter by analyzing your follower's patterns.</p>
